@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { Box } from "@mui/material";
+import { SelectBox } from "components/SelectBox";
+import { QuestionScreen } from "components/QuestionScreen";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [showQuestion, setShowQuestion] = useState({} as any);
+
+    return (
+        <Box>
+            <Box className="title">
+                QUIZ - TWITCH.TV/GUIHZ
+            </Box>
+
+            <Box className="main">
+                {showQuestion.questionId !== undefined &&
+                    <SelectBox />
+                }
+            </Box>
+            <Box>
+                {showQuestion.questionId === undefined &&
+                    <QuestionScreen
+                        title="1) Quais as cores da Espanha?" 
+                        answer="Vermelho e Amarelo"
+                    />
+                }
+            </Box>
+        </Box>
+    );
 }
 
 export default App;
