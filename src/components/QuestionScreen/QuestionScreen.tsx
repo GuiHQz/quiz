@@ -9,16 +9,18 @@ interface Teste {
 
 export const QuestionScreen: React.FC<Teste> = ({ title, answer }) => {
     const showAnswer = () => {
-
+        const p = document.getElementById("pID") as HTMLStyleElement;
+        const troca = p.style.display;
+        p.style.display = troca == "block" ? "none" : "block";
     };
 
-    const style = useStyles();
+    const styles = useStyles();
 
     return (
-        <Box className={style.contentArea}>
-            <h1 className={style.h1}>{title}</h1>
-            <button>Mostrar resposta</button>
-            <p className={style.p}>{answer}</p>
+        <Box className={styles.contentArea}>
+            <h1 className={styles.h1}>{title}</h1>
+            <button onClick={showAnswer} className={styles.button}>Mostrar resposta</button>
+            <p id="pID" className={styles.p}>{answer}</p>
         </Box>
     );
 };

@@ -7,6 +7,10 @@ import { QuestionScreen } from "components/QuestionScreen";
 function App() {
     const [showQuestion, setShowQuestion] = useState({} as any);
 
+    const [eachQuestion, setEachQuestion] = useState([{
+
+    }]);
+
     return (
         <Box>
             <Box className="title">
